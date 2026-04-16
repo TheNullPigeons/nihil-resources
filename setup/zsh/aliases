@@ -1,0 +1,6 @@
+# Shared aliases for Nihil containers.
+
+alias ws='cd /workspace'
+alias myres='cd /opt/my-resources'
+alias ll='ls -lah'
+alias pyserve='python3 -m http.server 8000'

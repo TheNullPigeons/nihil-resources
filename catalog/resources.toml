@@ -1,0 +1,58 @@
+version = 1
+
+# Manifest-first approach:
+# - keep entries disabled until the team has reviewed the source
+# - prefer pinned URLs and checksums before enabling a download
+# - targets are always relative to the repository root
+
+[[resource]]
+id = "powerview"
+name = "PowerView"
+category = "active-directory"
+profiles = ["full", "ad"]
+target = "active-directory/enum/PowerView.ps1"
+kind = "url"
+url = "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1"
+enabled = false
+executable = false
+sha256 = ""
+notes = "Classic AD enumeration helper. Review and pin before enabling."
+
+[[resource]]
+id = "lse"
+name = "Linux Smart Enumeration"
+category = "linux"
+profiles = ["full", "ctf"]
+target = "linux/enum/lse.sh"
+kind = "url"
+url = "https://raw.githubusercontent.com/diego-treitos/linux-smart-enumeration/master/lse.sh"
+enabled = false
+executable = true
+sha256 = ""
+notes = "Lightweight Linux enumeration script."
+
+[[resource]]
+id = "linpeas"
+name = "linPEAS"
+category = "linux"
+profiles = ["full", "ctf"]
+target = "linux/privesc/linpeas.sh"
+kind = "url"
+url = "https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh"
+enabled = false
+executable = true
+sha256 = ""
+notes = "Good example of a resource that should be pinned to a release before activation."
+
+[[resource]]
+id = "p0wny-shell"
+name = "p0wny-shell"
+category = "web"
+profiles = ["full", "web", "ctf"]
+target = "web/webshells/p0wny-shell.php"
+kind = "url"
+url = "https://raw.githubusercontent.com/flozz/p0wny-shell/master/shell.php"
+enabled = false
+executable = false
+sha256 = ""
+notes = "Single-file PHP shell. Keep disabled unless explicitly needed."

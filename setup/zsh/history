@@ -1,0 +1,5 @@
+cd /opt/my-resources
+find /opt/my-resources -maxdepth 3 -type f | less
+cd /workspace
+nmap -sV TARGET
+ffuf -u http://TARGET/FUZZ -w /usr/share/seclists/Discovery/Web-Content/common.txt

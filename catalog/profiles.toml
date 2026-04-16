@@ -1,0 +1,17 @@
+# Profiles aligned with Nihil image variants.
+
+[profile.full]
+description = "Full image: all shared resource categories."
+categories = ["setup", "active-directory", "linux", "windows", "web", "wordlists", "cheatsheets", "bin"]
+
+[profile.ad]
+description = "AD image: internal, Windows, and operator support resources."
+categories = ["setup", "active-directory", "linux", "windows", "wordlists", "cheatsheets", "bin"]
+
+[profile.web]
+description = "Web image: webshells, templates, payloads, and small support resources."
+categories = ["setup", "web", "linux", "wordlists", "cheatsheets", "bin"]
+
+[profile.ctf]
+description = "CTF image: lightweight multi-discipline helper resources."
+categories = ["setup", "linux", "web", "wordlists", "cheatsheets", "bin"]

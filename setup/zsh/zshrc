@@ -1,0 +1,9 @@
+# Shared zsh additions for Nihil containers.
+
+export NIHIL_RESOURCES_ROOT=/opt/my-resources
+export PATH="/opt/my-resources/bin:$PATH"
+
+# Keep the prompt and image defaults from nihil-images. Only add small shared tweaks here.
+if [ -d /opt/my-resources/cheatsheets ]; then
+  export NIHIL_CHEATSHEETS=/opt/my-resources/cheatsheets
+fi
