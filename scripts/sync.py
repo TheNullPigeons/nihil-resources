@@ -147,7 +147,13 @@ def download(resource: dict, destination: Path, *, force: bool, dry_run: bool) -
         return f"dry-run {resource['id']}: {url} -> {destination.relative_to(REPO_ROOT)}"
 
     destination.parent.mkdir(parents=True, exist_ok=True)
-    with tempfile.NamedTemporaryFile(delete=False) as tmp_handle:
+    # Create the temporary file next to the final destination so the final
+    # replace stays on the same filesystem and remains atomic.
+    with tempfile.NamedTemporaryFile(
+        delete=False,
+        dir=destination.parent,
+        prefix=f".{destination.name}.",
+    ) as tmp_handle:
         tmp_path = Path(tmp_handle.name)
 
     try:

@@ -3,3 +3,8 @@ __pycache__/
 *.pyc
 .cache/
 downloads/
+
+# Keep the catalog in Git, but avoid committing fetched binary artifacts by default.
+/windows/**/*.exe
+/linux/enum/pspy32
+/linux/enum/pspy64

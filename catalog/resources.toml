@@ -13,7 +13,7 @@ profiles = ["full", "ad"]
 target = "active-directory/enum/PowerView.ps1"
 kind = "url"
 url = "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1"
-enabled = false
+enabled = true
 executable = false
 sha256 = ""
 notes = "Classic AD enumeration helper. Review and pin before enabling."
@@ -26,7 +26,7 @@ profiles = ["full", "ctf"]
 target = "linux/enum/lse.sh"
 kind = "url"
 url = "https://raw.githubusercontent.com/diego-treitos/linux-smart-enumeration/master/lse.sh"
-enabled = false
+enabled = true
 executable = true
 sha256 = ""
 notes = "Lightweight Linux enumeration script."
@@ -39,7 +39,7 @@ profiles = ["full", "ctf"]
 target = "linux/privesc/linpeas.sh"
 kind = "url"
 url = "https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh"
-enabled = false
+enabled = true
 executable = true
 sha256 = ""
 notes = "Good example of a resource that should be pinned to a release before activation."
@@ -52,7 +52,407 @@ profiles = ["full", "web", "ctf"]
 target = "web/webshells/p0wny-shell.php"
 kind = "url"
 url = "https://raw.githubusercontent.com/flozz/p0wny-shell/master/shell.php"
-enabled = false
+enabled = true
 executable = false
 sha256 = ""
 notes = "Single-file PHP shell. Keep disabled unless explicitly needed."
+
+# Active Directory
+
+[[resource]]
+id = "inveigh"
+name = "Inveigh"
+category = "active-directory"
+profiles = ["full", "ad"]
+target = "active-directory/relay/Inveigh.ps1"
+kind = "url"
+url = "https://raw.githubusercontent.com/Kevin-Robertson/Inveigh/master/Inveigh.ps1"
+enabled = true
+executable = false
+sha256 = ""
+notes = "PowerShell LLMNR/NBNS/mDNS/HTTP spoofing toolkit."
+
+[[resource]]
+id = "inveigh-relay"
+name = "Inveigh-Relay"
+category = "active-directory"
+profiles = ["full", "ad"]
+target = "active-directory/relay/Inveigh-Relay.ps1"
+kind = "url"
+url = "https://raw.githubusercontent.com/Kevin-Robertson/Inveigh/master/Inveigh-Relay.ps1"
+enabled = true
+executable = false
+sha256 = ""
+notes = "Relay-focused companion script for Inveigh."
+
+[[resource]]
+id = "powermad"
+name = "Powermad"
+category = "active-directory"
+profiles = ["full", "ad"]
+target = "active-directory/modify/Powermad.ps1"
+kind = "url"
+url = "https://raw.githubusercontent.com/Kevin-Robertson/Powermad/master/Powermad.ps1"
+enabled = true
+executable = false
+sha256 = ""
+notes = "Machine-account and LDAP abuse helper for AD operations."
+
+[[resource]]
+id = "invoke-dnsupdate"
+name = "Invoke-DNSUpdate"
+category = "active-directory"
+profiles = ["full", "ad"]
+target = "active-directory/modify/Invoke-DNSUpdate.ps1"
+kind = "url"
+url = "https://raw.githubusercontent.com/Kevin-Robertson/Powermad/master/Invoke-DNSUpdate.ps1"
+enabled = true
+executable = false
+sha256 = ""
+notes = "PowerMad helper for AD-integrated DNS record updates."
+
+[[resource]]
+id = "nopac"
+name = "noPac"
+category = "active-directory"
+profiles = ["full", "ad"]
+target = "active-directory/exploit/noPac.py"
+kind = "url"
+url = "https://raw.githubusercontent.com/Ridter/noPac/main/noPac.py"
+enabled = true
+executable = false
+sha256 = ""
+notes = "CVE-2021-42278/42287 helper script."
+
+[[resource]]
+id = "petitpotam"
+name = "PetitPotam"
+category = "active-directory"
+profiles = ["full", "ad"]
+target = "active-directory/coerce/PetitPotam.py"
+kind = "url"
+url = "https://raw.githubusercontent.com/topotam/PetitPotam/main/PetitPotam.py"
+enabled = true
+executable = false
+sha256 = ""
+notes = "MS-EFSRPC coercion PoC."
+
+[[resource]]
+id = "dfscoerce"
+name = "DFSCoerce"
+category = "active-directory"
+profiles = ["full", "ad"]
+target = "active-directory/coerce/dfscoerce.py"
+kind = "url"
+url = "https://raw.githubusercontent.com/Wh04m1001/DFSCoerce/main/dfscoerce.py"
+enabled = true
+executable = false
+sha256 = ""
+notes = "MS-DFSNM coercion helper."
+
+[[resource]]
+id = "shadowcoerce"
+name = "ShadowCoerce"
+category = "active-directory"
+profiles = ["full", "ad"]
+target = "active-directory/coerce/shadowcoerce.py"
+kind = "url"
+url = "https://raw.githubusercontent.com/ShutdownRepo/ShadowCoerce/main/shadowcoerce.py"
+enabled = true
+executable = false
+sha256 = ""
+notes = "MS-FSRVP coercion helper."
+
+# Linux
+
+[[resource]]
+id = "linenum"
+name = "LinEnum"
+category = "linux"
+profiles = ["full", "ad", "web", "ctf"]
+target = "linux/enum/LinEnum.sh"
+kind = "url"
+url = "https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh"
+enabled = true
+executable = true
+sha256 = ""
+notes = "Classic Linux enumeration script."
+
+[[resource]]
+id = "deepce"
+name = "deepce"
+category = "linux"
+profiles = ["full", "ad", "web", "ctf"]
+target = "linux/privesc/deepce.sh"
+kind = "url"
+url = "https://raw.githubusercontent.com/stealthcopter/deepce/master/deepce.sh"
+enabled = true
+executable = true
+sha256 = ""
+notes = "Container escape and Docker enumeration helper."
+
+[[resource]]
+id = "linikatz"
+name = "linikatz"
+category = "linux"
+profiles = ["full", "ad", "ctf"]
+target = "linux/privesc/linikatz.sh"
+kind = "url"
+url = "https://raw.githubusercontent.com/CiscoCXSecurity/linikatz/master/linikatz.sh"
+enabled = true
+executable = true
+sha256 = ""
+notes = "Lightweight Linux credential extraction helper."
+
+[[resource]]
+id = "mimipenguin"
+name = "mimipenguin"
+category = "linux"
+profiles = ["full", "ad", "web", "ctf"]
+target = "linux/enum/mimipenguin.py"
+kind = "url"
+url = "https://raw.githubusercontent.com/huntergregal/mimipenguin/master/mimipenguin.py"
+enabled = true
+executable = false
+sha256 = ""
+notes = "Linux credential scraping helper."
+
+[[resource]]
+id = "http-put-server"
+name = "http-put-server"
+category = "linux"
+profiles = ["full", "ad", "web", "ctf"]
+target = "linux/transfer/http-put-server.py"
+kind = "url"
+url = "https://gist.githubusercontent.com/mildred/67d22d7289ae8f16cae7/raw/214c213c9415da18a471d1ed04660022cce059ef/server.py"
+enabled = true
+executable = false
+sha256 = ""
+notes = "Very small Python HTTP PUT server for quick file drops."
+
+[[resource]]
+id = "pspy64"
+name = "pspy64"
+category = "linux"
+profiles = ["full", "ad", "web", "ctf"]
+target = "linux/enum/pspy64"
+kind = "url"
+url = "https://github.com/DominicBreuker/pspy/releases/latest/download/pspy64"
+enabled = true
+executable = true
+sha256 = ""
+notes = "Monitor Linux processes without root privileges."
+
+[[resource]]
+id = "pspy32"
+name = "pspy32"
+category = "linux"
+profiles = ["full", "ad", "web", "ctf"]
+target = "linux/enum/pspy32"
+kind = "url"
+url = "https://github.com/DominicBreuker/pspy/releases/latest/download/pspy32"
+enabled = true
+executable = true
+sha256 = ""
+notes = "32-bit pspy build."
+
+# Windows
+
+[[resource]]
+id = "winpeasx64"
+name = "winPEASx64"
+category = "windows"
+profiles = ["full", "ad"]
+target = "windows/privesc/winPEASx64.exe"
+kind = "url"
+url = "https://github.com/peass-ng/PEASS-ng/releases/latest/download/winPEASx64.exe"
+enabled = true
+executable = false
+sha256 = ""
+notes = "Windows privilege-escalation enumeration binary."
+
+[[resource]]
+id = "winpeas-bat"
+name = "winPEAS.bat"
+category = "windows"
+profiles = ["full", "ad"]
+target = "windows/privesc/winPEAS.bat"
+kind = "url"
+url = "https://github.com/peass-ng/PEASS-ng/releases/latest/download/winPEAS.bat"
+enabled = true
+executable = false
+sha256 = ""
+notes = "Batch wrapper for quick Windows enumeration."
+
+[[resource]]
+id = "winpeas-ps1"
+name = "winPEAS.ps1"
+category = "windows"
+profiles = ["full", "ad"]
+target = "windows/privesc/winPEAS.ps1"
+kind = "url"
+url = "https://raw.githubusercontent.com/peass-ng/PEASS-ng/master/winPEAS/winPEASps1/winPEAS.ps1"
+enabled = true
+executable = false
+sha256 = ""
+notes = "PowerShell winPEAS variant."
+
+[[resource]]
+id = "powerup"
+name = "PowerUp"
+category = "windows"
+profiles = ["full", "ad"]
+target = "windows/privesc/PowerUp.ps1"
+kind = "url"
+url = "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Privesc/PowerUp.ps1"
+enabled = true
+executable = false
+sha256 = ""
+notes = "Windows privilege-escalation helper from PowerSploit."
+
+[[resource]]
+id = "invoke-powershelltcp"
+name = "Invoke-PowerShellTcp"
+category = "windows"
+profiles = ["full", "ad"]
+target = "windows/shells/Invoke-PowerShellTcp.ps1"
+kind = "url"
+url = "https://raw.githubusercontent.com/samratashok/nishang/master/Shells/Invoke-PowerShellTcp.ps1"
+enabled = true
+executable = false
+sha256 = ""
+notes = "Simple PowerShell reverse shell helper from Nishang."
+
+# Web
+
+[[resource]]
+id = "php-reverse-shell"
+name = "php-reverse-shell"
+category = "web"
+profiles = ["full", "web", "ctf"]
+target = "web/webshells/php-reverse-shell.php"
+kind = "url"
+url = "https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php"
+enabled = true
+executable = false
+sha256 = ""
+notes = "Classic PHP reverse shell."
+
+[[resource]]
+id = "aspx-shell"
+name = "ASPX Shell"
+category = "web"
+profiles = ["full", "web", "ctf"]
+target = "web/webshells/ASPX-Shell.aspx"
+kind = "url"
+url = "https://raw.githubusercontent.com/xl7dev/WebShell/master/Aspx/ASPX%20Shell.aspx"
+enabled = true
+executable = false
+sha256 = ""
+notes = "Simple ASPX shell."
+
+[[resource]]
+id = "cmdjsp"
+name = "cmdjsp"
+category = "web"
+profiles = ["full", "web", "ctf"]
+target = "web/webshells/cmdjsp.jsp"
+kind = "url"
+url = "https://raw.githubusercontent.com/xl7dev/WebShell/master/Jsp/cmdjsp.jsp"
+enabled = true
+executable = false
+sha256 = ""
+notes = "Minimal JSP command shell."
+
+[[resource]]
+id = "devilzshell-jsp"
+name = "devilzShell JSP"
+category = "web"
+profiles = ["full", "web", "ctf"]
+target = "web/webshells/devilzShell.jsp"
+kind = "url"
+url = "https://raw.githubusercontent.com/xl7dev/WebShell/master/Jsp/devilzShell.jsp"
+enabled = true
+executable = false
+sha256 = ""
+notes = "JSP shell variant."
+
+[[resource]]
+id = "write-aspx-file-ashx"
+name = "write_aspx_file.ashx"
+category = "web"
+profiles = ["full", "web", "ctf"]
+target = "web/webshells/write_aspx_file.ashx"
+kind = "url"
+url = "https://raw.githubusercontent.com/xl7dev/WebShell/master/Ashx/write_aspx_file.ashx"
+enabled = true
+executable = false
+sha256 = ""
+notes = "ASHX helper that writes an ASPX shell."
+
+# Wordlists
+
+[[resource]]
+id = "seclists-common"
+name = "SecLists common.txt"
+category = "wordlists"
+profiles = ["full", "web", "ctf"]
+target = "wordlists/web/common.txt"
+kind = "url"
+url = "https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/common.txt"
+enabled = true
+executable = false
+sha256 = ""
+notes = "Small baseline web content discovery list."
+
+[[resource]]
+id = "seclists-raft-small-words"
+name = "SecLists raft-small-words"
+category = "wordlists"
+profiles = ["full", "web", "ctf"]
+target = "wordlists/web/raft-small-words.txt"
+kind = "url"
+url = "https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/raft-small-words.txt"
+enabled = true
+executable = false
+sha256 = ""
+notes = "Small RAFT wordlist for ffuf/gobuster style content discovery."
+
+[[resource]]
+id = "seclists-api-endpoints"
+name = "SecLists API endpoints"
+category = "wordlists"
+profiles = ["full", "web", "ctf"]
+target = "wordlists/web/api-endpoints.txt"
+kind = "url"
+url = "https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/api/api-endpoints.txt"
+enabled = true
+executable = false
+sha256 = ""
+notes = "API endpoint discovery wordlist."
+
+[[resource]]
+id = "seclists-burp-parameter-names"
+name = "SecLists burp-parameter-names"
+category = "wordlists"
+profiles = ["full", "web", "ctf"]
+target = "wordlists/web/burp-parameter-names.txt"
+kind = "url"
+url = "https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/burp-parameter-names.txt"
+enabled = true
+executable = false
+sha256 = ""
+notes = "Parameter name list useful for parameter brute force."
+
+[[resource]]
+id = "seclists-10k-most-common"
+name = "SecLists 10k-most-common"
+category = "wordlists"
+profiles = ["full", "ad", "web", "ctf"]
+target = "wordlists/passwords/10k-most-common.txt"
+kind = "url"
+url = "https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/Common-Credentials/10k-most-common.txt"
+enabled = true
+executable = false
+sha256 = ""
+notes = "Small password list for quick credential spraying or test accounts."
