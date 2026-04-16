@@ -33,7 +33,7 @@ Everything else stays available inside the container under `/opt/my-resources/..
 
 ## Philosophy
 
-Exegol-resources is useful as a reference, but Nihil should keep a different model:
+Nihil should keep a small, explicit, operational model:
 
 - prefer manifests and pinned sources over opaque binary dumps
 - keep text and small portable artifacts in Git
