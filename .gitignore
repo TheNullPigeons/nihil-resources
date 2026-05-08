@@ -6,5 +6,7 @@ downloads/
 
 # Keep the catalog in Git, but avoid committing fetched binary artifacts by default.
 /windows/**/*.exe
+/windows/**/*.gz
+/windows/**/*.zip
 /linux/enum/pspy32
 /linux/enum/pspy64

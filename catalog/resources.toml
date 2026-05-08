@@ -258,6 +258,83 @@ notes = "32-bit pspy build."
 
 # Windows
 
+# Windows — pivot
+
+[[resource]]
+id = "chisel-windows"
+name = "chisel (Windows amd64)"
+category = "windows"
+profiles = ["full", "ad"]
+target = "windows/pivot/chisel_amd64.gz"
+kind = "url"
+url = "https://github.com/jpillora/chisel/releases/download/v1.10.1/chisel_1.10.1_windows_amd64.gz"
+enabled = true
+executable = false
+sha256 = ""
+notes = "TCP tunnel / SOCKS5 proxy for Windows targets. Downloaded as .gz — extract before dropping: gunzip chisel_amd64.gz && mv chisel_amd64 chisel.exe"
+
+# Windows — transfer
+
+[[resource]]
+id = "nc64"
+name = "nc64.exe"
+category = "windows"
+profiles = ["full", "ad"]
+target = "windows/transfer/nc64.exe"
+kind = "url"
+url = "https://github.com/int0x33/nc.exe/raw/master/nc64.exe"
+enabled = true
+executable = false
+sha256 = ""
+notes = "Netcat for Windows 64-bit. Useful for reverse shells and quick file transfers from compromised hosts."
+
+# Windows — enum
+
+[[resource]]
+id = "sharphound"
+name = "SharpHound"
+category = "windows"
+profiles = ["full", "ad"]
+target = "windows/enum/SharpHound_windows_x86.zip"
+kind = "url"
+url = "https://github.com/SpecterOps/SharpHound/releases/download/v2.12.0/SharpHound_v2.12.0_windows_x86.zip"
+enabled = true
+executable = false
+sha256 = ""
+notes = "BloodHound CE data collector for Windows (v2.12.0, x86). Downloaded as .zip — extract before dropping: unzip SharpHound_windows_x86.zip. Drop SharpHound.exe on a domain-joined host, exfil the output .zip to BloodHound CE."
+
+# Windows — ADCS
+
+[[resource]]
+id = "certify"
+name = "Certify"
+category = "windows"
+profiles = ["full", "ad"]
+target = "windows/adcs/Certify.exe"
+kind = "url"
+url = "https://github.com/GhostPack/Certify/releases/latest/download/Certify.exe"
+enabled = false
+executable = false
+sha256 = ""
+notes = "GhostPack ADCS enumeration tool. No official compiled release — compile from source (https://github.com/GhostPack/Certify) and place manually. Pairs with certipy on the Linux side."
+
+# Windows — Kerberos
+
+[[resource]]
+id = "rubeus"
+name = "Rubeus"
+category = "windows"
+profiles = ["full", "ad"]
+target = "windows/kerberos/Rubeus.exe"
+kind = "url"
+url = "https://github.com/GhostPack/Rubeus/releases/latest/download/Rubeus.exe"
+enabled = false
+executable = false
+sha256 = ""
+notes = "GhostPack Kerberos attack toolkit. No official compiled release — compile from source (https://github.com/GhostPack/Rubeus) and place manually."
+
+# Windows — privesc
+
 [[resource]]
 id = "winpeasx64"
 name = "winPEASx64"
