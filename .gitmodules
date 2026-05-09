@@ -1,0 +1,49 @@
+[submodule "active-directory/PowerSploit"]
+	path = active-directory/PowerSploit
+	url = https://github.com/PowerShellMafia/PowerSploit
+	branch = dev
+[submodule "windows/post-exploit/nishang"]
+	path = windows/post-exploit/nishang
+	url = https://github.com/samratashok/nishang
+[submodule "windows/post-exploit/PowerSharpPack"]
+	path = windows/post-exploit/PowerSharpPack
+	url = https://github.com/S3cur3Th1sSh1t/PowerSharpPack
+[submodule "windows/post-exploit/WinPwn"]
+	path = windows/post-exploit/WinPwn
+	url = https://github.com/S3cur3Th1sSh1t/WinPwn
+[submodule "windows/credentials/mimikatz"]
+	path = windows/credentials/mimikatz
+	url = https://github.com/gentilkiwi/mimikatz
+[submodule "linux/credentials/mimipenguin"]
+	path = linux/credentials/mimipenguin
+	url = https://github.com/huntergregal/mimipenguin
+[submodule "linux/credentials/mimipy"]
+	path = linux/credentials/mimipy
+	url = https://github.com/n1nj4sec/mimipy
+[submodule "windows/privesc/PrivescCheck"]
+	path = windows/privesc/PrivescCheck
+	url = https://github.com/itm4n/PrivescCheck
+[submodule "windows/enum/WinEnum"]
+	path = windows/enum/WinEnum
+	url = https://github.com/mattiareggiani/WinEnum
+[submodule "windows/binaries/SharpCollection"]
+	path = windows/binaries/SharpCollection
+	url = https://github.com/Flangvik/SharpCollection
+[submodule "windows/binaries/impacket-examples"]
+	path = windows/binaries/impacket-examples
+	url = https://github.com/maaaaz/impacket-examples-windows
+[submodule "windows/relay/Inveigh"]
+	path = windows/relay/Inveigh
+	url = https://github.com/Kevin-Robertson/Inveigh
+[submodule "windows/exchange/MailSniper"]
+	path = windows/exchange/MailSniper
+	url = https://github.com/dafthack/MailSniper
+[submodule "active-directory/collectors/AzureHound"]
+	path = active-directory/collectors/AzureHound
+	url = https://github.com/SpecterOps/AzureHound
+[submodule "active-directory/collectors/MSSQLHound"]
+	path = active-directory/collectors/MSSQLHound
+	url = https://github.com/SpecterOps/MSSQLHound
+[submodule "web/webshells/p0wny-shell"]
+	path = web/webshells/p0wny-shell
+	url = https://github.com/flozz/p0wny-shell

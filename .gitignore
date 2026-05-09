@@ -4,9 +4,10 @@ __pycache__/
 .cache/
 downloads/
 
-# Keep the catalog in Git, but avoid committing fetched binary artifacts by default.
-/windows/**/*.exe
-/windows/**/*.gz
-/windows/**/*.zip
-/linux/enum/pspy32
-/linux/enum/pspy64
+# Heavy binaries kept out of the tar-ball. Files above 100 MB are rejected by
+# GitHub; the RDCMan ones (60-65 MB) only trigger a warning but are excluded
+# for consistency. Maintainers fetch them with update.py for local use.
+/windows/audit/PingCastle/PingCastle.exe
+/windows/audit/PingCastle/PingCastleAutoUpdater.exe
+/windows/sysinternals/RDCMan.exe
+/windows/sysinternals/RDCMan-x86.exe

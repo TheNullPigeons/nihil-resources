@@ -258,7 +258,7 @@ notes = "32-bit pspy build."
 
 # Windows
 
-# Windows — pivot
+# Windows -pivot
 
 [[resource]]
 id = "chisel-windows"
@@ -271,9 +271,9 @@ url = "https://github.com/jpillora/chisel/releases/download/v1.10.1/chisel_1.10.
 enabled = true
 executable = false
 sha256 = ""
-notes = "TCP tunnel / SOCKS5 proxy for Windows targets. Downloaded as .gz — extract before dropping: gunzip chisel_amd64.gz && mv chisel_amd64 chisel.exe"
+notes = "TCP tunnel / SOCKS5 proxy for Windows targets. Downloaded as .gz -extract before dropping: gunzip chisel_amd64.gz && mv chisel_amd64 chisel.exe"
 
-# Windows — transfer
+# Windows -transfer
 
 [[resource]]
 id = "nc64"
@@ -288,7 +288,7 @@ executable = false
 sha256 = ""
 notes = "Netcat for Windows 64-bit. Useful for reverse shells and quick file transfers from compromised hosts."
 
-# Windows — enum
+# Windows -enum
 
 [[resource]]
 id = "sharphound"
@@ -301,9 +301,9 @@ url = "https://github.com/SpecterOps/SharpHound/releases/download/v2.12.0/SharpH
 enabled = true
 executable = false
 sha256 = ""
-notes = "BloodHound CE data collector for Windows (v2.12.0, x86). Downloaded as .zip — extract before dropping: unzip SharpHound_windows_x86.zip. Drop SharpHound.exe on a domain-joined host, exfil the output .zip to BloodHound CE."
+notes = "BloodHound CE data collector for Windows (v2.12.0, x86). Downloaded as .zip -extract before dropping: unzip SharpHound_windows_x86.zip. Drop SharpHound.exe on a domain-joined host, exfil the output .zip to BloodHound CE."
 
-# Windows — ADCS
+# Windows -ADCS
 
 [[resource]]
 id = "certify"
@@ -316,9 +316,9 @@ url = "https://github.com/GhostPack/Certify/releases/latest/download/Certify.exe
 enabled = false
 executable = false
 sha256 = ""
-notes = "GhostPack ADCS enumeration tool. No official compiled release — compile from source (https://github.com/GhostPack/Certify) and place manually. Pairs with certipy on the Linux side."
+notes = "GhostPack ADCS enumeration tool. No official compiled release -compile from source (https://github.com/GhostPack/Certify) and place manually. Pairs with certipy on the Linux side."
 
-# Windows — Kerberos
+# Windows -Kerberos
 
 [[resource]]
 id = "rubeus"
@@ -331,9 +331,9 @@ url = "https://github.com/GhostPack/Rubeus/releases/latest/download/Rubeus.exe"
 enabled = false
 executable = false
 sha256 = ""
-notes = "GhostPack Kerberos attack toolkit. No official compiled release — compile from source (https://github.com/GhostPack/Rubeus) and place manually."
+notes = "GhostPack Kerberos attack toolkit. No official compiled release -compile from source (https://github.com/GhostPack/Rubeus) and place manually."
 
-# Windows — privesc
+# Windows -privesc
 
 [[resource]]
 id = "winpeasx64"
@@ -533,3 +533,195 @@ enabled = true
 executable = false
 sha256 = ""
 notes = "Small password list for quick credential spraying or test accounts."
+
+# ===========================================================================
+# kind = "release_asset" : resolve latest release of github=owner/repo and
+# pick the asset whose name matches the regex asset_pattern.
+# ===========================================================================
+
+[[resource]]
+id = "linpeas-release"
+name = "linPEAS (sh, latest release)"
+category = "linux"
+profiles = ["full", "ad", "ctf"]
+target = "linux/privesc/linPEAS/linpeas.sh"
+kind = "release_asset"
+github = "carlospolop/PEASS-ng"
+asset_pattern = "^linpeas\\.sh$"
+enabled = true
+executable = true
+sha256 = ""
+notes = "Linux Privilege Escalation Awesome Script. Pinned to latest GitHub release (preferred over the kind=url 'linpeas' entry which tracks the master branch)."
+
+[[resource]]
+id = "winpeas-x64"
+name = "winPEAS x64"
+category = "windows"
+profiles = ["full", "ad"]
+target = "windows/privesc/winPEAS/winPEASx64.exe"
+kind = "release_asset"
+github = "carlospolop/PEASS-ng"
+asset_pattern = "^winPEASx64\\.exe$"
+enabled = true
+executable = false
+sha256 = ""
+notes = "Windows Privilege Escalation Awesome Script (x64 binary)."
+
+[[resource]]
+id = "godpotato-net4"
+name = "GodPotato (.NET 4)"
+category = "windows"
+profiles = ["full", "ad"]
+target = "windows/privesc/GodPotato-NET4.exe"
+kind = "release_asset"
+github = "BeichenDream/GodPotato"
+asset_pattern = "^GodPotato-NET4\\.exe$"
+enabled = true
+executable = false
+sha256 = ""
+notes = "Abuse SeImpersonatePrivilege on recent Windows."
+
+[[resource]]
+id = "printspoofer-x64"
+name = "PrintSpoofer (x64)"
+category = "windows"
+profiles = ["full", "ad"]
+target = "windows/privesc/PrintSpoofer64.exe"
+kind = "release_asset"
+github = "itm4n/PrintSpoofer"
+asset_pattern = "^PrintSpoofer64\\.exe$"
+enabled = true
+executable = false
+sha256 = ""
+notes = "Print spooler-based SeImpersonatePrivilege escalation (x64)."
+
+[[resource]]
+id = "rustscan-linux"
+name = "RustScan (Linux x86_64)"
+category = "linux"
+profiles = ["full", "ctf"]
+target = "linux/network/rustscan_linux_amd64.tar.gz.zip"
+kind = "release_asset"
+github = "RustScan/RustScan"
+asset_pattern = "^x86_64-linux-rustscan\\.tar\\.gz\\.zip$"
+enabled = true
+executable = false
+sha256 = ""
+notes = "Modern fast port scanner. Upstream wraps the tarball in a zip: unzip then tar -xzf to extract."
+
+[[resource]]
+id = "ligolo-ng-proxy-linux"
+name = "ligolo-ng proxy (Linux x86_64)"
+category = "linux"
+profiles = ["full", "ad", "web"]
+target = "linux/transfer/ligolo-ng/proxy_linux_amd64.tar.gz"
+kind = "release_asset"
+github = "nicocha30/ligolo-ng"
+asset_pattern = "^ligolo-ng_proxy_.*_linux_amd64\\.tar\\.gz$"
+enabled = true
+executable = false
+sha256 = ""
+notes = "Tunneling/pivoting proxy side, runs on the attacker host (Linux)."
+
+[[resource]]
+id = "ligolo-ng-agent-linux"
+name = "ligolo-ng agent (Linux x86_64)"
+category = "linux"
+profiles = ["full", "ad", "web"]
+target = "linux/transfer/ligolo-ng/agent_linux_amd64.tar.gz"
+kind = "release_asset"
+github = "nicocha30/ligolo-ng"
+asset_pattern = "^ligolo-ng_agent_.*_linux_amd64\\.tar\\.gz$"
+enabled = true
+executable = false
+sha256 = ""
+notes = "Tunneling/pivoting agent side, dropped on a Linux foothold."
+
+[[resource]]
+id = "ligolo-ng-agent-windows"
+name = "ligolo-ng agent (Windows x86_64)"
+category = "windows"
+profiles = ["full", "ad"]
+target = "windows/transfer/ligolo-ng/agent_windows_amd64.zip"
+kind = "release_asset"
+github = "nicocha30/ligolo-ng"
+asset_pattern = "^ligolo-ng_agent_.*_windows_amd64\\.zip$"
+enabled = true
+executable = false
+sha256 = ""
+notes = "Tunneling/pivoting agent side, dropped on a Windows foothold."
+
+# ===========================================================================
+# kind = "submodule" : full upstream git repo pinned as a git submodule.
+# `target` is the submodule path inside this repo. Optional `branch` field
+# tracks a non-default branch (eg. PowerSploit's "dev").
+# ===========================================================================
+
+[[resource]]
+id = "powersploit"
+name = "PowerSploit"
+category = "active-directory"
+profiles = ["full", "ad"]
+target = "active-directory/PowerSploit"
+kind = "submodule"
+repo = "https://github.com/PowerShellMafia/PowerSploit"
+branch = "dev"
+enabled = true
+notes = "Post-exploitation PowerShell framework (PowerView, PowerUp, etc.)."
+
+[[resource]]
+id = "mimikatz-src"
+name = "mimikatz (source)"
+category = "windows"
+profiles = ["full", "ad"]
+target = "windows/credentials/mimikatz"
+kind = "submodule"
+repo = "https://github.com/gentilkiwi/mimikatz"
+enabled = true
+notes = "Windows credential extraction toolkit, source tree (no precompiled binaries on master). For ready-to-drop binaries see the mimikatz entry."
+
+[[resource]]
+id = "mimikatz"
+name = "mimikatz (precompiled binaries)"
+category = "windows"
+profiles = ["full", "ad"]
+target = "windows/credentials/mimikatz-bin"
+kind = "release_asset"
+github = "gentilkiwi/mimikatz"
+asset_pattern = "^mimikatz_trunk\\.zip$"
+extract = true
+enabled = true
+notes = "Precompiled mimikatz binaries from the latest release (x64, Win32, mimidrv.sys). Pairs with the mimikatz-src submodule for sources."
+
+[[resource]]
+id = "privesccheck"
+name = "PrivescCheck"
+category = "windows"
+profiles = ["full", "ad"]
+target = "windows/privesc/PrivescCheck"
+kind = "submodule"
+repo = "https://github.com/itm4n/PrivescCheck"
+enabled = true
+notes = "Privilege escalation enumeration script for Windows."
+
+[[resource]]
+id = "sharpcollection"
+name = "SharpCollection"
+category = "windows"
+profiles = ["full", "ad"]
+target = "windows/binaries/SharpCollection"
+kind = "submodule"
+repo = "https://github.com/Flangvik/SharpCollection"
+enabled = true
+notes = "Nightly builds of common C# offensive tools."
+
+[[resource]]
+id = "p0wny-shell-repo"
+name = "p0wny-shell (full repo)"
+category = "web"
+profiles = ["full", "web", "ctf"]
+target = "web/webshells/p0wny-shell"
+kind = "submodule"
+repo = "https://github.com/flozz/p0wny-shell"
+enabled = true
+notes = "Single-file PHP shell, kept as a submodule for reproducibility."

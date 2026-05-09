@@ -1,181 +1,45 @@
 #!/usr/bin/env python3
-"""Validate, list, and optionally sync nihil-resources catalog entries."""
+"""User-side fetch: validate catalog, list entries, download enabled ones.
+
+Only handles kind="url" entries. Resources of kind="release_asset" or
+kind="submodule" are produced at maintainer time by update.py and shipped
+through `git clone --recurse-submodules`, so this script skips them silently.
+"""
 
 from __future__ import annotations
 
 import argparse
-import hashlib
-import shutil
 import sys
-import tempfile
-import tomllib
-import urllib.request
 from pathlib import Path
 
-
-REPO_ROOT = Path(__file__).resolve().parents[1]
-CATALOG_PATH = REPO_ROOT / "catalog" / "resources.toml"
-PROFILES_PATH = REPO_ROOT / "catalog" / "profiles.toml"
-
-
-class CatalogError(Exception):
-    """Raised when the catalog is invalid."""
-
-
-def load_toml(path: Path) -> dict:
-    with path.open("rb") as handle:
-        return tomllib.load(handle)
-
-
-def load_profiles() -> dict[str, dict]:
-    raw = load_toml(PROFILES_PATH)
-    profiles = raw.get("profile", {})
-    if not profiles:
-        raise CatalogError(f"No profiles found in {PROFILES_PATH}")
-    return profiles
-
-
-def load_resources() -> list[dict]:
-    raw = load_toml(CATALOG_PATH)
-    resources = raw.get("resource", [])
-    if not isinstance(resources, list):
-        raise CatalogError(f"Invalid resource list in {CATALOG_PATH}")
-    return resources
-
-
-def is_safe_relative_target(target: str) -> bool:
-    path = Path(target)
-    return not path.is_absolute() and ".." not in path.parts
-
-
-def validate_catalog(resources: list[dict], profiles: dict[str, dict]) -> list[str]:
-    errors: list[str] = []
-    seen_ids: set[str] = set()
-    known_profiles = set(profiles)
-
-    for index, resource in enumerate(resources, start=1):
-        label = resource.get("id", f"resource#{index}")
-        resource_id = resource.get("id")
-        target = resource.get("target")
-        kind = resource.get("kind")
-        resource_profiles = resource.get("profiles", [])
-        sha256 = (resource.get("sha256") or "").strip()
-
-        if not resource_id:
-            errors.append(f"{label}: missing 'id'")
-        elif resource_id in seen_ids:
-            errors.append(f"{label}: duplicate id")
-        else:
-            seen_ids.add(resource_id)
-
-        if not target or not is_safe_relative_target(target):
-            errors.append(f"{label}: invalid relative target '{target}'")
-
-        if kind not in {"url"}:
-            errors.append(f"{label}: unsupported kind '{kind}'")
-
-        if kind == "url" and not resource.get("url"):
-            errors.append(f"{label}: missing 'url'")
-
-        if not isinstance(resource_profiles, list) or not resource_profiles:
-            errors.append(f"{label}: missing profiles")
-        else:
-            unknown = sorted(set(resource_profiles) - known_profiles)
-            if unknown:
-                errors.append(f"{label}: unknown profiles: {', '.join(unknown)}")
-
-        if sha256 and len(sha256) != 64:
-            errors.append(f"{label}: sha256 must be 64 hex chars when set")
-
-    return errors
-
-
-def filter_resources(
-    resources: list[dict],
-    *,
-    profile: str | None,
-    category: str | None,
-    enabled_only: bool,
-) -> list[dict]:
-    selected = resources
-
-    if profile:
-        selected = [r for r in selected if profile in r.get("profiles", [])]
-
-    if category:
-        selected = [r for r in selected if r.get("category") == category]
-
-    if enabled_only:
-        selected = [r for r in selected if bool(r.get("enabled"))]
-
-    return selected
+from _lib import (
+    REPO_ROOT,
+    USER_FETCH_KINDS,
+    CatalogError,
+    download_url,
+    filter_resources,
+    load_profiles,
+    load_resources,
+    validate_catalog,
+)
 
 
 def print_resources(resources: list[dict]) -> None:
     if not resources:
         print("No matching resources.")
         return
-
-    for resource in resources:
-        status = "enabled" if resource.get("enabled") else "disabled"
-        profiles = ",".join(resource.get("profiles", []))
+    for r in resources:
+        status = "enabled" if r.get("enabled") else "disabled"
+        profiles = ",".join(r.get("profiles", []))
+        kind = r.get("kind", "?")
         print(
-            f"{resource['id']:<16} "
-            f"{resource['category']:<18} "
+            f"{r['id']:<28} "
+            f"{r.get('category', ''):<18} "
+            f"{kind:<14} "
             f"{status:<8} "
-            f"{profiles:<16} "
-            f"{resource['target']}"
+            f"{profiles:<20} "
+            f"{r.get('target', '')}"
         )
-
-
-def compute_sha256(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as handle:
-        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
-            digest.update(chunk)
-    return digest.hexdigest()
-
-
-def download(resource: dict, destination: Path, *, force: bool, dry_run: bool) -> str:
-    url = resource["url"]
-    sha256 = (resource.get("sha256") or "").strip()
-
-    if destination.exists() and not force:
-        return f"skip    {resource['id']}: already exists"
-
-    if dry_run:
-        return f"dry-run {resource['id']}: {url} -> {destination.relative_to(REPO_ROOT)}"
-
-    destination.parent.mkdir(parents=True, exist_ok=True)
-    # Create the temporary file next to the final destination so the final
-    # replace stays on the same filesystem and remains atomic.
-    with tempfile.NamedTemporaryFile(
-        delete=False,
-        dir=destination.parent,
-        prefix=f".{destination.name}.",
-    ) as tmp_handle:
-        tmp_path = Path(tmp_handle.name)
-
-    try:
-        with urllib.request.urlopen(url) as response, tmp_path.open("wb") as handle:
-            shutil.copyfileobj(response, handle)
-
-        if sha256:
-            actual = compute_sha256(tmp_path)
-            if actual != sha256:
-                raise CatalogError(
-                    f"{resource['id']}: sha256 mismatch (expected {sha256}, got {actual})"
-                )
-
-        tmp_path.replace(destination)
-
-        if resource.get("executable"):
-            destination.chmod(0o755)
-
-        return f"sync    {resource['id']}: wrote {destination.relative_to(REPO_ROOT)}"
-    finally:
-        if tmp_path.exists():
-            tmp_path.unlink()
 
 
 def cmd_validate(_: argparse.Namespace) -> int:
@@ -186,7 +50,7 @@ def cmd_validate(_: argparse.Namespace) -> int:
         for error in errors:
             print(f"ERROR: {error}", file=sys.stderr)
         return 1
-    print("Catalog is valid.")
+    print(f"Catalog is valid ({len(resources)} entries).")
     return 0
 
 
@@ -222,22 +86,32 @@ def cmd_sync(args: argparse.Namespace) -> int:
         resources,
         profile=args.profile,
         category=args.category,
+        kinds=USER_FETCH_KINDS,
         enabled_only=True,
     )
 
     if not selected:
-        print("No enabled resources match the current selection.")
+        print("No enabled URL-based resources match the current selection.")
         return 0
 
+    failed = 0
     for resource in selected:
         destination = REPO_ROOT / resource["target"]
+        if destination.exists() and not args.force:
+            print(f"skip    {resource['id']}: already exists")
+            continue
+        if args.dry_run:
+            print(f"dry-run {resource['id']}: {resource['url']} -> {resource['target']}")
+            continue
         try:
-            print(download(resource, destination, force=args.force, dry_run=args.dry_run))
-        except Exception as exc:
-            print(f"ERROR: {exc}", file=sys.stderr)
-            return 1
-
-    return 0
+            download_url(resource["url"], destination, expected_sha256=(resource.get("sha256") or "").strip())
+            if resource.get("executable"):
+                destination.chmod(0o755)
+            print(f"sync    {resource['id']}: wrote {resource['target']}")
+        except CatalogError as exc:
+            failed += 1
+            print(f"ERROR   {resource['id']}: {exc}", file=sys.stderr)
+    return 1 if failed else 0
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -253,7 +127,7 @@ def build_parser() -> argparse.ArgumentParser:
     list_parser.add_argument("--enabled-only", action="store_true", help="Show only enabled resources")
     list_parser.set_defaults(func=cmd_list)
 
-    sync_parser = subparsers.add_parser("sync", help="Download enabled resources")
+    sync_parser = subparsers.add_parser("sync", help="Download enabled URL-based resources")
     sync_parser.add_argument("--profile", help="Filter by profile name")
     sync_parser.add_argument("--category", help="Filter by category")
     sync_parser.add_argument("--force", action="store_true", help="Overwrite existing files")
