@@ -609,20 +609,6 @@ executable = false
 sha256 = ""
 notes = "Modern fast port scanner. Upstream wraps the tarball in a zip: unzip then tar -xzf to extract."
 
-[[resource]]
-id = "ligolo-ng-proxy-linux"
-name = "ligolo-ng proxy (Linux x86_64)"
-category = "linux"
-profiles = ["full", "ad", "web"]
-target = "linux/pivot/ligolo-ng"
-kind = "release_asset"
-github = "nicocha30/ligolo-ng"
-asset_pattern = "^ligolo-ng_proxy_.*_linux_amd64\\.tar\\.gz$"
-enabled = true
-executable = false
-extract = true
-sha256 = ""
-notes = "Tunneling/pivoting proxy side, runs on the attacker host (Linux)."
 
 [[resource]]
 id = "ligolo-ng-agent-linux"
