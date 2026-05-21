@@ -1,4 +1,5 @@
 Resource,Link,Description
 ligolo-ng proxy (Linux x86_64),https://github.com/nicocha30/ligolo-ng,"Tunneling/pivoting proxy side, runs on the attacker host (Linux)."
 ligolo-ng agent (Linux x86_64),https://github.com/nicocha30/ligolo-ng,"Tunneling/pivoting agent side, dropped on a Linux foothold."
+ligolo-ng agent (Linux ARM64),https://github.com/nicocha30/ligolo-ng,"Tunneling/pivoting agent side, dropped on a Linux ARM64 foothold."
 ligolo-ng agent (Windows x86_64),https://github.com/nicocha30/ligolo-ng,"Tunneling/pivoting agent side, dropped on a Windows foothold."
