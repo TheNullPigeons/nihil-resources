@@ -589,6 +589,36 @@ extract = true
 sha256 = ""
 notes = "Tunneling/pivoting agent side, dropped on a Windows foothold."
 
+[[resource]]
+id = "ligolo-ng-proxy-linux"
+name = "ligolo-ng proxy (Linux x86_64)"
+category = "linux"
+profiles = ["full", "ad", "web"]
+target = "linux/pivot/ligolo-ng-proxy"
+kind = "release_asset"
+github = "nicocha30/ligolo-ng"
+asset_pattern = "^ligolo-ng_proxy_.*_linux_amd64\\.tar\\.gz$"
+enabled = true
+executable = false
+extract = true
+sha256 = ""
+notes = "Tunneling/pivoting proxy side, runs on the attacker machine (nihil container). Manages tunnels from agents."
+
+[[resource]]
+id = "ligolo-ng-proxy-windows"
+name = "ligolo-ng proxy (Windows x86_64)"
+category = "windows"
+profiles = ["full", "ad"]
+target = "windows/pivot/ligolo-ng-proxy"
+kind = "release_asset"
+github = "nicocha30/ligolo-ng"
+asset_pattern = "^ligolo-ng_proxy_.*_windows_amd64\\.zip$"
+enabled = true
+executable = false
+extract = true
+sha256 = ""
+notes = "ligolo-ng proxy compiled for Windows (cross-op pivot scenarios)."
+
 # ===========================================================================
 # kind = "submodule" : full upstream git repo pinned as a git submodule.
 # `target` is the submodule path inside this repo. Optional `branch` field

@@ -1,5 +1,51 @@
 Resource,Link,Description
-ligolo-ng proxy (Linux x86_64),https://github.com/nicocha30/ligolo-ng,"Tunneling/pivoting proxy side, runs on the attacker host (Linux)."
+PowerView,https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1,Classic AD enumeration helper. Review and pin before enabling.
+Linux Smart Enumeration,https://raw.githubusercontent.com/diego-treitos/linux-smart-enumeration/master/lse.sh,Lightweight Linux enumeration script.
+linPEAS,https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh,Good example of a resource that should be pinned to a release before activation.
+p0wny-shell,https://raw.githubusercontent.com/flozz/p0wny-shell/master/shell.php,Single-file PHP shell. Keep disabled unless explicitly needed.
+Inveigh,https://raw.githubusercontent.com/Kevin-Robertson/Inveigh/master/Inveigh.ps1,PowerShell LLMNR/NBNS/mDNS/HTTP spoofing toolkit.
+Inveigh-Relay,https://raw.githubusercontent.com/Kevin-Robertson/Inveigh/master/Inveigh-Relay.ps1,Relay-focused companion script for Inveigh.
+Powermad,https://raw.githubusercontent.com/Kevin-Robertson/Powermad/master/Powermad.ps1,Machine-account and LDAP abuse helper for AD operations.
+Invoke-DNSUpdate,https://raw.githubusercontent.com/Kevin-Robertson/Powermad/master/Invoke-DNSUpdate.ps1,PowerMad helper for AD-integrated DNS record updates.
+noPac,https://raw.githubusercontent.com/Ridter/noPac/main/noPac.py,CVE-2021-42278/42287 helper script.
+PetitPotam,https://raw.githubusercontent.com/topotam/PetitPotam/main/PetitPotam.py,MS-EFSRPC coercion PoC.
+DFSCoerce,https://raw.githubusercontent.com/Wh04m1001/DFSCoerce/main/dfscoerce.py,MS-DFSNM coercion helper.
+ShadowCoerce,https://raw.githubusercontent.com/ShutdownRepo/ShadowCoerce/main/shadowcoerce.py,MS-FSRVP coercion helper.
+LinEnum,https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh,Classic Linux enumeration script.
+deepce,https://raw.githubusercontent.com/stealthcopter/deepce/master/deepce.sh,Container escape and Docker enumeration helper.
+linikatz,https://raw.githubusercontent.com/CiscoCXSecurity/linikatz/master/linikatz.sh,Lightweight Linux credential extraction helper.
+mimipenguin,https://raw.githubusercontent.com/huntergregal/mimipenguin/master/mimipenguin.py,Linux credential scraping helper.
+http-put-server,https://gist.githubusercontent.com/mildred/67d22d7289ae8f16cae7/raw/214c213c9415da18a471d1ed04660022cce059ef/server.py,Very small Python HTTP PUT server for quick file drops.
+pspy64,https://github.com/DominicBreuker/pspy/releases/latest/download/pspy64,Monitor Linux processes without root privileges.
+pspy32,https://github.com/DominicBreuker/pspy/releases/latest/download/pspy32,32-bit pspy build.
+chisel (Windows amd64),https://github.com/jpillora/chisel/releases/download/v1.10.1/chisel_1.10.1_windows_amd64.gz,TCP tunnel / SOCKS5 proxy for Windows targets. Downloaded as .gz -extract before dropping: gunzip chisel_amd64.gz && mv chisel_amd64 chisel.exe
+nc64.exe,https://github.com/int0x33/nc.exe/raw/master/nc64.exe,Netcat for Windows 64-bit. Useful for reverse shells and quick file transfers from compromised hosts.
+SharpHound,https://github.com/SpecterOps/SharpHound/releases/download/v2.12.0/SharpHound_v2.12.0_windows_x86.zip,"BloodHound CE data collector for Windows (v2.12.0, x86). Downloaded as .zip -extract before dropping: unzip SharpHound_windows_x86.zip. Drop SharpHound.exe on a domain-joined host, exfil the output .zip to BloodHound CE."
+Certify,https://github.com/GhostPack/Certify/releases/latest/download/Certify.exe,GhostPack ADCS enumeration tool. No official compiled release -compile from source (https://github.com/GhostPack/Certify) and place manually. Pairs with certipy on the Linux side.
+Rubeus,https://github.com/GhostPack/Rubeus/releases/latest/download/Rubeus.exe,GhostPack Kerberos attack toolkit. No official compiled release -compile from source (https://github.com/GhostPack/Rubeus) and place manually.
+winPEASx64,https://github.com/peass-ng/PEASS-ng/releases/latest/download/winPEASx64.exe,Windows privilege-escalation enumeration binary.
+winPEAS.bat,https://github.com/peass-ng/PEASS-ng/releases/latest/download/winPEAS.bat,Batch wrapper for quick Windows enumeration.
+winPEAS.ps1,https://raw.githubusercontent.com/peass-ng/PEASS-ng/master/winPEAS/winPEASps1/winPEAS.ps1,PowerShell winPEAS variant.
+PowerUp,https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Privesc/PowerUp.ps1,Windows privilege-escalation helper from PowerSploit.
+Invoke-PowerShellTcp,https://raw.githubusercontent.com/samratashok/nishang/master/Shells/Invoke-PowerShellTcp.ps1,Simple PowerShell reverse shell helper from Nishang.
+php-reverse-shell,https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php,Classic PHP reverse shell.
+ASPX Shell,https://raw.githubusercontent.com/xl7dev/WebShell/master/Aspx/ASPX%20Shell.aspx,Simple ASPX shell.
+cmdjsp,https://raw.githubusercontent.com/xl7dev/WebShell/master/Jsp/cmdjsp.jsp,Minimal JSP command shell.
+devilzShell JSP,https://raw.githubusercontent.com/xl7dev/WebShell/master/Jsp/devilzShell.jsp,JSP shell variant.
+write_aspx_file.ashx,https://raw.githubusercontent.com/xl7dev/WebShell/master/Ashx/write_aspx_file.ashx,ASHX helper that writes an ASPX shell.
+"linPEAS (sh, latest release)",https://github.com/carlospolop/PEASS-ng,Linux Privilege Escalation Awesome Script. Pinned to latest GitHub release (preferred over the kind=url 'linpeas' entry which tracks the master branch).
+winPEAS x64,https://github.com/carlospolop/PEASS-ng,Windows Privilege Escalation Awesome Script (x64 binary).
+GodPotato (.NET 4),https://github.com/BeichenDream/GodPotato,Abuse SeImpersonatePrivilege on recent Windows.
+PrintSpoofer (x64),https://github.com/itm4n/PrintSpoofer,Print spooler-based SeImpersonatePrivilege escalation (x64).
+RustScan (Linux x86_64),https://github.com/RustScan/RustScan,Modern fast port scanner. Upstream wraps the tarball in a zip: unzip then tar -xzf to extract.
 ligolo-ng agent (Linux x86_64),https://github.com/nicocha30/ligolo-ng,"Tunneling/pivoting agent side, dropped on a Linux foothold."
 ligolo-ng agent (Linux ARM64),https://github.com/nicocha30/ligolo-ng,"Tunneling/pivoting agent side, dropped on a Linux ARM64 foothold."
 ligolo-ng agent (Windows x86_64),https://github.com/nicocha30/ligolo-ng,"Tunneling/pivoting agent side, dropped on a Windows foothold."
+ligolo-ng proxy (Linux x86_64),https://github.com/nicocha30/ligolo-ng,"Tunneling/pivoting proxy side, runs on the attacker machine (nihil container). Manages tunnels from agents."
+ligolo-ng proxy (Windows x86_64),https://github.com/nicocha30/ligolo-ng,ligolo-ng proxy compiled for Windows (cross-op pivot scenarios).
+PowerSploit,https://github.com/PowerShellMafia/PowerSploit,"Post-exploitation PowerShell framework (PowerView, PowerUp, etc.)."
+mimikatz (source),https://github.com/gentilkiwi/mimikatz,"Windows credential extraction toolkit, source tree (no precompiled binaries on master). For ready-to-drop binaries see the mimikatz entry."
+mimikatz (precompiled binaries),https://github.com/gentilkiwi/mimikatz,"Precompiled mimikatz binaries from the latest release (x64, Win32, mimidrv.sys). Pairs with the mimikatz-src submodule for sources."
+PrivescCheck,https://github.com/itm4n/PrivescCheck,Privilege escalation enumeration script for Windows.
+SharpCollection,https://github.com/Flangvik/SharpCollection,Nightly builds of common C# offensive tools.
+p0wny-shell (full repo),https://github.com/flozz/p0wny-shell,"Single-file PHP shell, kept as a submodule for reproducibility."
