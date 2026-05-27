@@ -693,3 +693,14 @@ kind = "submodule"
 repo = "https://github.com/flozz/p0wny-shell"
 enabled = true
 notes = "Single-file PHP shell, kept as a submodule for reproducibility."
+
+[[resource]]
+id = "reverse-shell-splunk"
+name = "reverse_shell_splunk"
+category = "web"
+profiles = ["full", "web"]
+target = "web/splunk/reverse-shell-splunk"
+kind = "submodule"
+repo = "https://github.com/0xjpuff/reverse_shell_splunk"
+enabled = true
+notes = "Splunk reverse shell payload collection. Abuse Splunk's scripted inputs to get RCE."
