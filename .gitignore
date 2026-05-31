@@ -11,3 +11,8 @@ downloads/
 /windows/audit/PingCastle/PingCastleAutoUpdater.exe
 /windows/sysinternals/RDCMan.exe
 /windows/sysinternals/RDCMan-x86.exe
+
+# ligolo-ng runtime artifacts (session history, config, self-signed certs)
+/linux/pivot/ligolo-ng/ligolo-ng.history
+/linux/pivot/ligolo-ng/ligolo-ng.yaml
+/linux/pivot/ligolo-ng/ligolo-selfcerts/
