@@ -388,6 +388,19 @@ sha256 = ""
 notes = "Windows privilege-escalation helper from PowerSploit."
 
 [[resource]]
+id = "enable-all-token-privs"
+name = "EnableAllTokenPrivs"
+category = "windows"
+profiles = ["full", "ad"]
+target = "windows/privesc/EnableAllTokenPrivs.ps1"
+kind = "url"
+url = "https://raw.githubusercontent.com/fashionproof/EnableAllTokenPrivs/master/EnableAllTokenPrivs.ps1"
+enabled = true
+executable = false
+sha256 = ""
+notes = "Enables all token privileges for the current process via AdjustTokenPrivileges. Code by Lee Holmes, hosted by fashionproof. Used in HTB token-abuse labs (SeTakeOwnership, etc.)."
+
+[[resource]]
 id = "invoke-powershelltcp"
 name = "Invoke-PowerShellTcp"
 category = "windows"

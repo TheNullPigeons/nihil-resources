@@ -27,6 +27,7 @@ winPEASx64,https://github.com/peass-ng/PEASS-ng/releases/latest/download/winPEAS
 winPEAS.bat,https://github.com/peass-ng/PEASS-ng/releases/latest/download/winPEAS.bat,Batch wrapper for quick Windows enumeration.
 winPEAS.ps1,https://raw.githubusercontent.com/peass-ng/PEASS-ng/master/winPEAS/winPEASps1/winPEAS.ps1,PowerShell winPEAS variant.
 PowerUp,https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Privesc/PowerUp.ps1,Windows privilege-escalation helper from PowerSploit.
+EnableAllTokenPrivs,https://raw.githubusercontent.com/fashionproof/EnableAllTokenPrivs/master/EnableAllTokenPrivs.ps1,Enables all token privileges for the current process (Lee Holmes code). Used in token-abuse privesc labs.
 Invoke-PowerShellTcp,https://raw.githubusercontent.com/samratashok/nishang/master/Shells/Invoke-PowerShellTcp.ps1,Simple PowerShell reverse shell helper from Nishang.
 php-reverse-shell,https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php,Classic PHP reverse shell.
 ASPX Shell,https://raw.githubusercontent.com/xl7dev/WebShell/master/Aspx/ASPX%20Shell.aspx,Simple ASPX shell.
