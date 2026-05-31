@@ -47,3 +47,6 @@
 [submodule "web/webshells/p0wny-shell"]
 	path = web/webshells/p0wny-shell
 	url = https://github.com/flozz/p0wny-shell
+[submodule "web/splunk/reverse-shell-splunk"]
+	path = web/splunk/reverse-shell-splunk
+	url = https://github.com/0xjpuff/reverse_shell_splunk
