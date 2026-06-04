@@ -49,5 +49,6 @@ mimikatz (source),https://github.com/gentilkiwi/mimikatz,"Windows credential ext
 mimikatz (precompiled binaries),https://github.com/gentilkiwi/mimikatz,"Precompiled mimikatz binaries from the latest release (x64, Win32, mimidrv.sys). Pairs with the mimikatz-src submodule for sources."
 PrivescCheck,https://github.com/itm4n/PrivescCheck,Privilege escalation enumeration script for Windows.
 SharpCollection,https://github.com/Flangvik/SharpCollection,Nightly builds of common C# offensive tools.
+PSSQLite,https://github.com/RamblingCookieMonster/PSSQLite,"PowerShell module to query SQLite databases (loot browser, app and EDR/agent data). Ships precompiled SQLite assemblies for Windows and Linux."
 p0wny-shell (full repo),https://github.com/flozz/p0wny-shell,"Single-file PHP shell, kept as a submodule for reproducibility."
 reverse_shell_splunk,https://github.com/0xjpuff/reverse_shell_splunk,Splunk reverse shell payload collection. Abuse Splunk's scripted inputs to get RCE.

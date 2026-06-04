@@ -697,6 +697,17 @@ enabled = true
 notes = "Nightly builds of common C# offensive tools."
 
 [[resource]]
+id = "pssqlite"
+name = "PSSQLite"
+category = "windows"
+profiles = ["full", "ad"]
+target = "windows/post-exploit/PSSQLite"
+kind = "submodule"
+repo = "https://github.com/RamblingCookieMonster/PSSQLite"
+enabled = true
+notes = "PowerShell module to query SQLite databases (loot browser, app and EDR/agent data on a host). Ships precompiled SQLite assemblies for Windows and Linux."
+
+[[resource]]
 id = "p0wny-shell-repo"
 name = "p0wny-shell (full repo)"
 category = "web"

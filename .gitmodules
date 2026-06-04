@@ -50,3 +50,6 @@
 [submodule "web/splunk/reverse-shell-splunk"]
 	path = web/splunk/reverse-shell-splunk
 	url = https://github.com/0xjpuff/reverse_shell_splunk
+[submodule "windows/post-exploit/PSSQLite"]
+	path = windows/post-exploit/PSSQLite
+	url = https://github.com/RamblingCookieMonster/PSSQLite.git
