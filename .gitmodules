@@ -53,3 +53,6 @@
 [submodule "windows/post-exploit/PSSQLite"]
 	path = windows/post-exploit/PSSQLite
 	url = https://github.com/RamblingCookieMonster/PSSQLite.git
+[submodule "windows/privesc/SeTcbPrivilege-Abuse"]
+	path = windows/privesc/SeTcbPrivilege-Abuse
+	url = https://github.com/b4lisong/SeTcbPrivilege-Abuse.git
