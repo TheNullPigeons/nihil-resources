@@ -728,3 +728,30 @@ kind = "submodule"
 repo = "https://github.com/0xjpuff/reverse_shell_splunk"
 enabled = true
 notes = "Splunk reverse shell payload collection. Abuse Splunk's scripted inputs to get RCE."
+
+[[resource]]
+id = "sharpefspotato"
+name = "SharpEfsPotato"
+category = "windows"
+profiles = ["full", "ad"]
+target = "windows/privesc/SharpEfsPotato.exe"
+kind = "url"
+url = "https://github.com/bugch3ck/SharpEfsPotato"
+enabled = false
+executable = false
+sha256 = ""
+notes = "MS-EFSR EfsRpcOpenFileRaw SeImpersonatePrivilege exploit. Compiled from source and committed (no pre-built releases available)."
+
+[[resource]]
+id = "sigmapotato"
+name = "SigmaPotato"
+category = "windows"
+profiles = ["full", "ad"]
+target = "windows/privesc/SigmaPotato.exe"
+kind = "release_asset"
+github = "tylerdotrar/SigmaPotato"
+asset_pattern = "^SigmaPotato\\.exe$"
+enabled = true
+executable = false
+sha256 = ""
+notes = "GodPotato fork with PowerShell/.NET reflection support. SeImpersonatePrivilege on Windows 8-11, Server 2012-2022."
