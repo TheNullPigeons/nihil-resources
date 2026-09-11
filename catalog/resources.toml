@@ -664,6 +664,17 @@ enabled = true
 notes = "Post-exploitation PowerShell framework (PowerView, PowerUp, etc.)."
 
 [[resource]]
+id = "admodule"
+name = "ADModule"
+category = "active-directory"
+profiles = ["full", "ad"]
+target = "active-directory/ADModule"
+kind = "submodule"
+repo = "https://github.com/samratashok/ADModule"
+enabled = true
+notes = "Microsoft Active Directory PowerShell module files, useful on systems without RSAT."
+
+[[resource]]
 id = "mimikatz-src"
 name = "mimikatz (source)"
 category = "windows"
@@ -697,6 +708,17 @@ kind = "submodule"
 repo = "https://github.com/itm4n/PrivescCheck"
 enabled = true
 notes = "Privilege escalation enumeration script for Windows."
+
+[[resource]]
+id = "coercedpotato"
+name = "CoercedPotato"
+category = "windows"
+profiles = ["full", "ad"]
+target = "windows/privesc/CoercedPotato"
+kind = "submodule"
+repo = "https://github.com/Prepouce/CoercedPotato"
+enabled = true
+notes = "Windows privilege escalation helper using coercion and token impersonation techniques."
 
 [[resource]]
 id = "sharpcollection"
