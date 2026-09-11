@@ -416,6 +416,19 @@ notes = "Simple PowerShell reverse shell helper from Nishang."
 # Web
 
 [[resource]]
+id = "fuzz-txt"
+name = "fuzz.txt"
+category = "wordlists"
+profiles = ["full", "ad", "web", "ctf"]
+target = "wordlists/fuzz.txt"
+kind = "url"
+url = "https://raw.githubusercontent.com/Bo0oM/fuzz.txt/master/fuzz.txt"
+enabled = true
+executable = false
+sha256 = "8c4b1861ac7b0cfc975e8d9a0eeeb715a0fe5c9b96127b397d02bcff3d0cd2b5"
+notes = "Curated web fuzzing wordlist from Bo0oM/fuzz.txt."
+
+[[resource]]
 id = "php-reverse-shell"
 name = "php-reverse-shell"
 category = "web"
@@ -651,6 +664,17 @@ enabled = true
 notes = "Post-exploitation PowerShell framework (PowerView, PowerUp, etc.)."
 
 [[resource]]
+id = "admodule"
+name = "ADModule"
+category = "active-directory"
+profiles = ["full", "ad"]
+target = "active-directory/ADModule"
+kind = "submodule"
+repo = "https://github.com/samratashok/ADModule"
+enabled = true
+notes = "Microsoft Active Directory PowerShell module files, useful on systems without RSAT."
+
+[[resource]]
 id = "mimikatz-src"
 name = "mimikatz (source)"
 category = "windows"
@@ -684,6 +708,17 @@ kind = "submodule"
 repo = "https://github.com/itm4n/PrivescCheck"
 enabled = true
 notes = "Privilege escalation enumeration script for Windows."
+
+[[resource]]
+id = "coercedpotato"
+name = "CoercedPotato"
+category = "windows"
+profiles = ["full", "ad"]
+target = "windows/privesc/CoercedPotato"
+kind = "submodule"
+repo = "https://github.com/Prepouce/CoercedPotato"
+enabled = true
+notes = "Windows privilege escalation helper using coercion and token impersonation techniques."
 
 [[resource]]
 id = "sharpcollection"
