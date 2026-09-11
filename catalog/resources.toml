@@ -416,6 +416,19 @@ notes = "Simple PowerShell reverse shell helper from Nishang."
 # Web
 
 [[resource]]
+id = "fuzz-txt"
+name = "fuzz.txt"
+category = "wordlists"
+profiles = ["full", "ad", "web", "ctf"]
+target = "wordlists/fuzz.txt"
+kind = "url"
+url = "https://raw.githubusercontent.com/Bo0oM/fuzz.txt/master/fuzz.txt"
+enabled = true
+executable = false
+sha256 = "8c4b1861ac7b0cfc975e8d9a0eeeb715a0fe5c9b96127b397d02bcff3d0cd2b5"
+notes = "Curated web fuzzing wordlist from Bo0oM/fuzz.txt."
+
+[[resource]]
 id = "php-reverse-shell"
 name = "php-reverse-shell"
 category = "web"
