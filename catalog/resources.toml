@@ -318,6 +318,19 @@ executable = false
 sha256 = ""
 notes = "GhostPack ADCS enumeration tool. No official compiled release -compile from source (https://github.com/GhostPack/Certify) and place manually. Pairs with certipy on the Linux side."
 
+[[resource]]
+id = "adcheck-gui-msi"
+name = "ADcheck GUI MSI"
+category = "windows"
+profiles = ["full", "ad"]
+target = "windows/audit/ADcheck-1.7.1-x64.msi"
+kind = "url"
+url = "https://github.com/CobblePot59/ADcheck/releases/download/v.1.7.1-gui/ADcheck-1.7.1-x64.msi"
+enabled = true
+executable = false
+sha256 = "dceb0ecdcc511110ae99c24af54244aff418814ab2a09e9779020747111ea08e"
+notes = "Windows GUI installer for ADcheck v1.7.1."
+
 # Windows -Kerberos
 
 [[resource]]
