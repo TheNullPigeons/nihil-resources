@@ -31,6 +31,14 @@ my_resources:
 `setup/` will be applied automatically.
 Everything else stays available inside the container under `/opt/my-resources/...`.
 
+## Licensing
+
+The root [MIT license](LICENSE) covers only original works owned by TheNullPigeons.
+Third-party tools, binaries, wordlists, vendored files, and submodules are excluded
+and remain subject to their own licenses or terms. Check each resource's provenance
+before redistributing it; the root license grants no rights to unlicensed third-party
+material.
+
 ## Philosophy
 
 Nihil should keep a small, explicit, operational model:
